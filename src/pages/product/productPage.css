@@ -1,0 +1,31 @@
+.ProductPage {
+  display: flex;
+  justify-content: center;
+}
+
+.ProductPage .container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  width: 100%;
+  max-width: var(--container_max-width);
+  background-color: white;
+
+  padding: 60px 40px;
+}
+
+.ProductPage .container .top-section{
+  display: flex;
+  gap: 40px;
+}
+
+.ProductPage .container .top-section img{
+  max-width: 500px;
+  max-height: 500px;
+}
+
+.ProductPage .container .top-section .right-section{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

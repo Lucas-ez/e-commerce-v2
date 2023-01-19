@@ -1,3 +1,7 @@
+:root {
+  --container_max-width: 1200px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -5,7 +9,7 @@
 }
 
 body {
-  margin: 0;
+  background-color: #ececec;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
