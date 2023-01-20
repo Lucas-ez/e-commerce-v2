@@ -1,0 +1,35 @@
+.ProductCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ffffff;
+  gap: 1rem;
+  padding: 2rem;
+
+  border: 1px solid black;
+  width: 300px;
+  text-decoration: none;
+}
+
+.ProductCard img {
+  width: 100%;
+}
+
+.ProductCard .title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: rgb(75, 75, 75);
+  width: 100%;
+}
+
+.ProductCard .price {
+  font-size: 2rem;
+  color: rgb(40, 40, 40);
+}
+
+.ProductCard .bottom-section {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
