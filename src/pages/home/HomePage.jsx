@@ -2,15 +2,15 @@ import React from 'react'
 import { ProductCard } from './../../components'
 import './homePage.css'
 
-export default function HomePage({allProducts}) {
+export default function HomePage({products}) {
   return (
     <div className='HomePage'>
       <div className='container'>
         {
-          (allProducts.length === 0) ?
+          (products.length === 0) ?
           <h2>Loading...</h2>
           :
-          allProducts.map(product => <ProductCard key={product.id} product={product}/>)
+          products.map(product => <ProductCard key={product.id} product={product}/>)
         }
       </div>
     </div>

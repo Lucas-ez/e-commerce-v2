@@ -1,5 +1,6 @@
 .ProductCard {
   text-decoration: none;
+  user-select: none;
   display: flex;
   flex-direction: column;
   background-color: #ffffff;

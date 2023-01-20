@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './header.css'
 import { SearchBar } from './../components/'
 
-export default function Header() {
+export default function Header({categories}) {
+
+  const location = useLocation()
+
   return (
     <div className='Header'>
       <div className='container'>
@@ -12,7 +15,13 @@ export default function Header() {
             Logo
           </div>
         </Link>
-        <SearchBar />
+        {
+          location.pathname !== '/' 
+          ?
+          <></>
+          :
+          <SearchBar categories={categories}/>
+        }
         <div className='cart-btn'>
           <button>CART</button>
         </div>

@@ -7,9 +7,8 @@ export default function ProductPage({allProducts}) {
   const query = new URLSearchParams(search)
   const id = query.get('id')
 
-  
   const product = allProducts.filter(p => p.id === Number(id))[0]
-  console.log(product);
+  
   return (
     <div className='ProductPage'>
       <div className="container">
