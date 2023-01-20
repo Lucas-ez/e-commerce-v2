@@ -8,11 +8,11 @@ export default function ProductCard({product}) {
 
   return (
     <Link to={`/product?id=${product.id}`} className='ProductCard'>
-      <img src={product.image} alt={product.title} />
-      <h6 className='title'>
-        {product.title}
-      </h6>
+      <div className="top-section">
+        <img src={product.image} alt={product.title} />
+      </div>
       <div className='bottom-section'>
+        <h6 className='title'>{product.title}</h6>
         <h2 className='price'>{"$ " + product.price}</h2>
       </div>
     </Link>
