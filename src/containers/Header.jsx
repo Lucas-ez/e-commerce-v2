@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router-dom'
 import './header.css'
 import { SearchBar } from './../components/'
 
-export default function Header({categories}) {
+export default function Header({categories, searchBar,setSearchBar}) {
 
   const location = useLocation()
 
@@ -20,7 +20,7 @@ export default function Header({categories}) {
           ?
           <></>
           :
-          <SearchBar categories={categories}/>
+          <SearchBar categories={categories} searchBar={searchBar} setSearchBar={setSearchBar}/>
         }
         <div className='cart-btn'>
           <button>CART</button>

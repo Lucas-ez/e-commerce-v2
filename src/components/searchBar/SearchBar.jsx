@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export default function SearchBar({categories}) {
+export default function SearchBar({categories, searchBar,setSearchBar}) {
 
   const [category, setCategory] = useState('')
   const navigate = useNavigate()
@@ -10,9 +10,11 @@ export default function SearchBar({categories}) {
     navigate(process.env.PUBLIC_URL + `/?category=${category}`)
   },[category])
 
+  console.log(searchBar);
+
   return (
     <div className='SearchBar'>
-      <input type="text" />
+      <input type="text" value={searchBar} onChange={(e) => setSearchBar(e.target.value)}/>
       <select name="category" 
         onChange={(e) => {setCategory(e.target.value)}}
         defaultValue=''

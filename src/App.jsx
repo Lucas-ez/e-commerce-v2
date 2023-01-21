@@ -7,6 +7,7 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 function App() {
 
   const [allProducts, setAllProducts] = useState([])
+  const [searchBar, setSearchBar] = useState('')
 
   const {search} = useLocation()
   const query = new URLSearchParams(search)
@@ -25,14 +26,17 @@ function App() {
 
     const posCategory = query.get('category')
 
-    const isFromThisCategory = posCategory === '' || product.category.includes(categories[posCategory])
+    const conditions = [
+      posCategory === '' || product.category === categories[posCategory],
+      product.title.toLowerCase().includes(searchBar.toLowerCase()),
+    ]
 
-    return isFromThisCategory
+    return conditions.reduce((prev, current)=> prev && current, true)
   }
 
   return (
     <div className="App">
-      <Header categories={categories}/>
+      <Header categories={categories} searchBar={searchBar} setSearchBar={setSearchBar}/>
       <Routes>
         <Route exact path='/' element={<HomePage products={allProducts.filter(p => filterProduct(p))}/>}/>
         <Route exact path='/product' element={<ProductPage allProducts={allProducts}/>}/>
