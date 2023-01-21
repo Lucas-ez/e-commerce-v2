@@ -12,6 +12,8 @@ function App() {
   const {search} = useLocation()
   const query = new URLSearchParams(search)
 
+  console.log(query)
+
   useEffect(()=> {
     fetch('https://fakestoreapi.com/products')
       .then(res => res.json())
@@ -25,6 +27,9 @@ function App() {
   const filterProduct = product => {
 
     const posCategory = query.get('category')
+    
+    console.log(posCategory);
+    if(posCategory === 'null') return true    
 
     const conditions = [
       posCategory === '' || product.category === categories[posCategory],
@@ -39,7 +44,7 @@ function App() {
       <Header categories={categories} searchBar={searchBar} setSearchBar={setSearchBar}/>
       <Routes>
         <Route exact path='/' element={<HomePage products={allProducts.filter(p => filterProduct(p))}/>}/>
-        <Route exact path='/product' element={<ProductPage allProducts={allProducts}/>}/>
+        <Route exact path='/product' element={<ProductPage allProducts={allProducts} categories={categories}/>}/>
         {/* 
         <CartPage/>
         */}

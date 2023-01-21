@@ -1,8 +1,8 @@
 import React from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import './productPage.css'
 
-export default function ProductPage({allProducts}) {
+export default function ProductPage({allProducts, categories}) {
   const {search} = useLocation()
   const query = new URLSearchParams(search)
   const id = query.get('id')
@@ -15,7 +15,9 @@ export default function ProductPage({allProducts}) {
         <div className="top-section">
           <img src={product.image} alt={product.title} />
           <div className='right-section'>
-            <span>{`more ${product.category}`}</span>
+            <Link to={`/?category=${categories.indexOf(product.category)}`}>
+                    <span>{`more ${product.category}`}</span>
+            </Link>
             <span>{product.title}</span>
             <span>{product.rating.rate} ({product.rating.count})</span>
             <span>$ {product.price}</span>

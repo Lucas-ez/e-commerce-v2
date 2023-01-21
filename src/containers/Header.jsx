@@ -10,7 +10,7 @@ export default function Header({categories, searchBar,setSearchBar}) {
   return (
     <div className='Header'>
       <div className='container'>
-        <Link to='/'>
+        <Link to='/?category='>
           <div className='logo'>
             Logo
           </div>

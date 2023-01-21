@@ -1,23 +1,26 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 export default function SearchBar({categories, searchBar,setSearchBar}) {
+  
+  const {search} = useLocation()
+  const query = new URLSearchParams(search)
+  const posCategory = query.get('category')
 
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState(posCategory)
   const navigate = useNavigate()
+
 
   useEffect(() => {
     navigate(process.env.PUBLIC_URL + `/?category=${category}`)
   },[category])
-
-  console.log(searchBar);
 
   return (
     <div className='SearchBar'>
       <input type="text" value={searchBar} onChange={(e) => setSearchBar(e.target.value)}/>
       <select name="category" 
         onChange={(e) => {setCategory(e.target.value)}}
-        defaultValue=''
+        defaultValue={category}
       >
         <option value="">all categories</option>
         {
