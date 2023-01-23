@@ -8,11 +8,10 @@ function App() {
 
   const [allProducts, setAllProducts] = useState([])
   const [searchBar, setSearchBar] = useState('')
+  const [cartProducts, setCartProducts] = useState([])
 
   const {search} = useLocation()
   const query = new URLSearchParams(search)
-
-  console.log(query)
 
   useEffect(()=> {
     fetch('https://fakestoreapi.com/products')
@@ -28,7 +27,6 @@ function App() {
 
     const posCategory = query.get('category')
     
-    console.log(posCategory);
     if(posCategory === 'null') return true    
 
     const conditions = [
@@ -39,15 +37,21 @@ function App() {
     return conditions.reduce((prev, current)=> prev && current, true)
   }
 
+  const addProductToCart = (product) => {
+    setCartProducts([...cartProducts, product])
+  }
+
+  const removeProductFromCart = (id) => {
+    setCartProducts(cartProducts.filter(product => product.id !== id))
+  }
+
   return (
     <div className="App">
       <Header categories={categories} searchBar={searchBar} setSearchBar={setSearchBar}/>
       <Routes>
         <Route exact path='/' element={<HomePage products={allProducts.filter(p => filterProduct(p))}/>}/>
-        <Route exact path='/product' element={<ProductPage allProducts={allProducts} categories={categories}/>}/>
-        {/* 
-        <CartPage/>
-        */}
+        <Route exact path='/product' element={<ProductPage allProducts={allProducts} categories={categories} addToCart={addProductToCart}/>}/>
+        <Route exact path='/cart' element={<CartPage cartProducts={cartProducts} removeProduct={removeProductFromCart}/>}/>
       </Routes>
     </div>
   );

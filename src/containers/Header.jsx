@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import './header.css'
 import { SearchBar } from './../components/'
+import { FaShoppingCart } from 'react-icons/fa'
 
 export default function Header({categories, searchBar,setSearchBar}) {
 
@@ -22,9 +23,9 @@ export default function Header({categories, searchBar,setSearchBar}) {
           :
           <SearchBar categories={categories} searchBar={searchBar} setSearchBar={setSearchBar}/>
         }
-        <div className='cart-btn'>
-          <button>CART</button>
-        </div>
+        <Link to='/cart'>
+          <FaShoppingCart  className='cart-btn'/>
+        </Link>
       </div>
     </div>
   )

@@ -1,8 +1,9 @@
 import React from 'react'
 import { useLocation, Link } from 'react-router-dom'
+import { FaCartPlus } from 'react-icons/fa'
 import './productPage.css'
 
-export default function ProductPage({allProducts, categories}) {
+export default function ProductPage({allProducts, categories, addToCart}) {
   const {search} = useLocation()
   const query = new URLSearchParams(search)
   const id = query.get('id')
@@ -21,6 +22,10 @@ export default function ProductPage({allProducts, categories}) {
             <span>{product.title}</span>
             <span>{product.rating.rate} ({product.rating.count})</span>
             <span>$ {product.price}</span>
+            <button onClick={() => addToCart(product)}>
+              <FaCartPlus />
+              <span>Add to cart</span>
+            </button>
           </div>
         </div>
         <div className="bottom-section">

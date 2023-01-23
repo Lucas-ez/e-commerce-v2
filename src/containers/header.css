@@ -11,10 +11,15 @@
   justify-content: space-between;
   width: 100%;
   max-width: var(--container_max-width);
-  padding: 1rem;
+  padding: 0.8rem;
   color: white;
 }
 
 .logo {
   color: white;
+}
+
+.cart-btn {
+  color: white;
+  font-size: 2rem;
 }

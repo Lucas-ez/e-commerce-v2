@@ -1,0 +1,15 @@
+.CartPage {
+  display: flex;
+  justify-content: center;
+}
+
+.CartPage .container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--container_max-width);
+  background-color: white;
+
+  gap: 20px;
+  padding: 60px 40px;
+}
