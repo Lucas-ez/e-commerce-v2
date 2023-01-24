@@ -14,22 +14,27 @@ export default function ProductPage({allProducts, categories, addToCart}) {
     <div className='ProductPage'>
       <div className="container">
         <div className="top-section">
-          <img src={product.image} alt={product.title} />
+          <div className="left-section">
+            <img src={product.image} alt={product.title} />
+          </div>
           <div className='right-section'>
-            <Link to={`/?category=${categories.indexOf(product.category)}`}>
-                    <span>{`more ${product.category}`}</span>
+            <Link to={`/?category=${categories.indexOf(product.category)}`} className='more-category'>
+              {`more ${product.category}`}
             </Link>
-            <span>{product.title}</span>
+            <span className='title'>{product.title}</span>
             <span>{product.rating.rate} ({product.rating.count})</span>
-            <span>$ {product.price}</span>
-            <button onClick={() => addToCart(product)}>
+            <span className='price'>$ {product.price}</span>
+            <button onClick={() => addToCart(product)} className='add-btn'>
               <FaCartPlus />
               <span>Add to cart</span>
             </button>
           </div>
         </div>
         <div className="bottom-section">
-          {product.description}
+          <h2>Description</h2>
+          <div className='description'>
+            {product.description}
+          </div>
         </div>
       </div>
     </div>

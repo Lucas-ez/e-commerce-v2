@@ -5,8 +5,8 @@ import { CartProduct } from './../../components'
 export default function CartPage({cartProducts, removeProduct}) {
 
   return (
-    <div className='CartPage'>
-      <div className="container">
+    <table className='CartPage'>
+      <tbody className="container">
         {
           (cartProducts.length !== 0) 
           ?
@@ -14,7 +14,8 @@ export default function CartPage({cartProducts, removeProduct}) {
           :
           <></>
         }
-      </div>
-    </div>
+        <tr className='total'>Total ${cartProducts.reduce((acum, prod) => acum + prod.price,0)}</tr>
+      </tbody>
+    </table>
   )
 }

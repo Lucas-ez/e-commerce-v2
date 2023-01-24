@@ -38,7 +38,10 @@ function App() {
   }
 
   const addProductToCart = (product) => {
-    setCartProducts([...cartProducts, product])
+    if(cartProducts.indexOf(product) === -1){
+      setCartProducts([...cartProducts, product])
+      // Agregar alerta
+    }
   }
 
   const removeProductFromCart = (id) => {

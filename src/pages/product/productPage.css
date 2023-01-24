@@ -14,18 +14,78 @@
   padding: 60px 40px;
 }
 
-.ProductPage .container .top-section{
+.ProductPage .top-section{
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 40px;
 }
 
-.ProductPage .container .top-section img{
+.ProductPage .top-section img{
   max-width: 500px;
   max-height: 500px;
 }
 
-.ProductPage .container .top-section .right-section{
+.ProductPage .top-section .left-section{
   display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.ProductPage .top-section .right-section{
+  display: flex;
+  align-items: flex-start;
   flex-direction: column;
   gap: 20px;
+  width: 500px;
+  
+  
+  border-radius: 8px;
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.36);
+  padding: 1.2rem 1.2rem;
+}
+
+.ProductPage .more-category {
+  text-decoration: none;
+  color: #535c98;
+  font-weight: 500;
+}
+
+.ProductPage .title{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.ProductPage .price{
+  font-size: 2.4rem;
+}
+
+.ProductPage .add-btn{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  font-size: 1.4rem;
+  width: 100%;
+  padding: 0.4rem;
+
+  background-color: #535c98;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.ProductPage .add-btn:hover {
+  background-color: #5e68ab;
+}
+
+.ProductPage .add-btn:active {
+  background-color: #4b5489;  
+}
+
+.ProductPage .bottom-section h2 {
+  font-size: 1.6rem;
+  padding-block: 1rem;
 }

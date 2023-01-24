@@ -3,17 +3,20 @@ import './cartProduct.css'
 import { Link } from 'react-router-dom';
 
 export default function CartProduct({product, removeProduct}) {
-
-  console.log(product);
-
   return (
-    <div className='CartProduct'>
-      <Link to={`/product?id=${product.id}`}>
-        <img src={product.image} alt="" />
-      </Link>
-      <span>{product.title}</span>
-      <span>${product.price}</span>
-      <button onClick={()=> removeProduct(product.id)}>Remove</button>
-    </div>
+    <tr className='CartProduct'>
+      <td className='info'>
+        <Link to={`/product?id=${product.id}`} className='img'>
+          <img src={product.image} alt="" />
+        </Link>
+        <Link to={`/product?id=${product.id}`} className='title'>
+          <span>{product.title}</span>
+        </Link>
+      </td>
+      <td className='right'>
+        <span className='price'>$ {product.price}</span>
+        <button onClick={()=> removeProduct(product.id)} className='remove-btn'>Remove</button>
+      </td>
+    </tr>
   )
 }
