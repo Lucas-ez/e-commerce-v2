@@ -1,0 +1,13 @@
+.Rating {
+  display: flex;
+  gap: 4px;
+}
+
+.Rating .star {
+  width: 1.4rem;
+  color: white;
+}
+
+.Rating .count {
+  font-size: 1.2rem;
+}

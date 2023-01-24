@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation, Link } from 'react-router-dom'
 import { FaCartPlus } from 'react-icons/fa'
+import { StarsRating } from '../../components'
 import './productPage.css'
 
 export default function ProductPage({allProducts, categories, addToCart}) {
@@ -22,7 +23,7 @@ export default function ProductPage({allProducts, categories, addToCart}) {
               {`more ${product.category}`}
             </Link>
             <span className='title'>{product.title}</span>
-            <span>{product.rating.rate} ({product.rating.count})</span>
+            <StarsRating rate={product.rating.rate} count={product.rating.count}/>
             <span className='price'>$ {product.price}</span>
             <button onClick={() => addToCart(product)} className='add-btn'>
               <FaCartPlus />
