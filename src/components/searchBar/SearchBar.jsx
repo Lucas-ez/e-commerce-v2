@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
+import './searchBar.css'
 
 export default function SearchBar({categories, searchBar,setSearchBar}) {
   
